@@ -9,6 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.VerticalGroup;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 
+import net.mgsx.pd.GdxPdDemo;
 import net.mgsx.pd.Pd;
 import net.mgsx.pd.patch.PdPatch;
 
@@ -19,6 +20,10 @@ public class MicProcessingDemo implements Demo
 	@Override
 	public Actor create(Skin skin) 
 	{
+		Pd.audio.pause();
+		GdxPdDemo.config.inputChannels = 1;
+		Pd.audio.resume();
+		
 		patch = Pd.audio.open(Gdx.files.internal("pd/pitchshift.pd"));
 		
 		Table root = new Table(skin);
@@ -75,6 +80,10 @@ public class MicProcessingDemo implements Demo
 	@Override
 	public void dispose() {
 		Pd.audio.close(patch);
+		
+		Pd.audio.pause();
+		GdxPdDemo.config.inputChannels = 0;
+		Pd.audio.resume();
 	}
 	
 	@Override

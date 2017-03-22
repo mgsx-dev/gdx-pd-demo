@@ -24,6 +24,8 @@ import net.mgsx.pd.demo.SoundEffectsDemo;
 
 public class GdxPdDemo extends ApplicationAdapter 
 {
+	public static PdConfiguration config;
+	
 	private Stage stage;
 	private Skin skin;
 	private Demo demo;
@@ -32,8 +34,7 @@ public class GdxPdDemo extends ApplicationAdapter
 	@Override
 	public void create () 
 	{
-		PdConfiguration config = new PdConfiguration();
-		config.inputChannels = 1;
+		config = new PdConfiguration();
 		Pd.audio.create(config);
 
 		// new ScreenViewport()

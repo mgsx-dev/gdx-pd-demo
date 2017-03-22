@@ -11,6 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.VerticalGroup;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 
+import net.mgsx.pd.GdxPdDemo;
 import net.mgsx.pd.Pd;
 import net.mgsx.pd.patch.PdPatch;
 import net.mgsx.pd.utils.PdAdapter;
@@ -21,6 +22,11 @@ public class MicAnalysisDemo implements Demo
 	
 	@Override
 	public Actor create(Skin skin) {
+		
+		Pd.audio.pause();
+		GdxPdDemo.config.inputChannels = 1;
+		Pd.audio.resume();
+		
 		patch  = Pd.audio.open(Gdx.files.internal("pd/breath.pd"));
 		
 		Table root = new Table(skin);
@@ -60,6 +66,10 @@ public class MicAnalysisDemo implements Demo
 	@Override
 	public void dispose() {
 		patch.dispose();
+		
+		Pd.audio.pause();
+		GdxPdDemo.config.inputChannels = 0;
+		Pd.audio.resume();
 	}
 
 	@Override

@@ -34,6 +34,9 @@ startScripts{
 	mainClassName = project.mainClassName
 	applicationName = "gdx-pd-demo"
 	// classpath += files(project.assetsDir)
+	
+   	unixStartScriptGenerator.template = resources.text.fromFile('scripts/unixStartScript-3.4.1.txt')
+   	windowsStartScriptGenerator.template = resources.text.fromFile('scripts/windowsStartScript-3.4.1.txt')
 }
 
 distributions.main.baseName = "gdx-pd-demo"

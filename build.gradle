@@ -16,7 +16,7 @@ allprojects {
     apply plugin: "eclipse"
     apply plugin: "idea"
 
-    version = '0.2-SNAPSHOT'
+    version = '0.2.0-SNAPSHOT'
     ext {
         appName = "gdx-pd-demo"
         gdxVersion = '1.9.6'
@@ -24,7 +24,8 @@ allprojects {
         box2DLightsVersion = '1.4'
         ashleyVersion = '1.7.0'
         aiVersion = '1.8.0'
-        pdVersion = '0.6.0-SNAPSHOT'
+        pdVersion = '0.6.0'
+        patchBankVersion = '0.1.0'
     }
 
     repositories {
@@ -86,7 +87,7 @@ project(":android") {
         natives "net.mgsx.gdx:gdx-pd-platform:$pdVersion:natives-x86"
         natives "net.mgsx.gdx:gdx-pd-platform:$pdVersion:natives-x86_64"
         
-        pd 'com.github.mgsx-dev:gdx-pd-patchbank:master-SNAPSHOT'
+        pd 'com.github.mgsx-dev:gdx-pd-patchbank:$patchBankVersion'
          
         pd('rjdj:rjlib:e74c696@zip')
     }

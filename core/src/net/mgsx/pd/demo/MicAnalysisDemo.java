@@ -3,12 +3,13 @@ package net.mgsx.pd.demo;
 import org.puredata.core.PdListener;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.ProgressBar;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.badlogic.gdx.scenes.scene2d.ui.VerticalGroup;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.Align;
 
@@ -37,36 +38,42 @@ public class MicAnalysisDemo implements Demo
 		
 		Label infoLabel = new Label(info, skin, "title");
 		infoLabel.setAlignment(Align.center);
-		root.add(infoLabel).padBottom(30).row();
+		root.add(infoLabel).row();
 		
-		root.add("Microphone Tracking Demo :").row();
-		VerticalGroup list = new VerticalGroup();
+		root.add("SOUND ANALYSIS").padTop(40).row();
 		
-		final Label volumeLabel = new Label("", skin);
-		list.addActor(pdLabel("level", skin, volumeLabel));
-		final Label pitchLabel = new Label("", skin);
-		list.addActor(pdLabel("pitch", skin, pitchLabel));
-		root.add(list);
-		root.add(" ").row();
-		root.add(" ").row();
+		Table analysisTable = new Table(skin);
+		analysisTable.defaults().padRight(10);
+		pdMetric(analysisTable, "Level (db)", "level", 0, 120, skin);
+		analysisTable.row();
+		pdMetric(analysisTable, "Pitch (note)", "pitch", 0, 127, skin);
+		analysisTable.row();
 		
-		root.add("Attack  Tracking Demo :").row();
-		root.add("1- click start learning,").row();
-		root.add("2- produce a sound 3 times in a row,").row();
-		root.add("3- repeat 2 at will,").row();
-		root.add("4- click stop learning.").row();
-		root.add("The attack tracker is now trained, attackId from mic input  ").row();
-		root.add("should be coherent with the data gathered while training.").row();
-		root.add(" ").row();
+		root.add(analysisTable).row();
 		
-		VerticalGroup list2 = new VerticalGroup();
-		list2.addActor(pdButton("start learning", skin, "start_learning"));
-		list2.addActor(pdButton("stop learning", skin, "stop_learning"));
-		list2.addActor(pdButton("forget", skin, "forget"));
-		final Label attackId = new Label("", skin);
-		list2.addActor(pdLabel("attackId", skin,  attackId));
-		root.add(list2);
-			
+		
+		root.add("SOUND RECOGNITION").padTop(40).row();
+		
+		Table recogTable = new Table(skin);
+		recogTable.defaults().padRight(10);
+		recogTable.add(pdBongHeader(skin)).colspan(2).row();
+		recogTable.add(pdBonk(skin)).padTop(20).padBottom(20).width(500).height(100).colspan(2).row();
+		recogTable.add(pdButton("start learning", skin, "start_learning"));
+		recogTable.add(pdButton("stop learning", skin, "stop_learning")).row();
+		
+		
+//		recogTable.add("2- produce a sound 3 times in a row").expandX().left().colspan(2);
+//		recogTable.row();
+//		
+//		recogTable.add("3- repeat 2 at will...").expandX().left();
+//		recogTable.row();
+		
+		
+		
+//		recogTable.add("The attack tracker is now trained, attackId from mic input\n" + 
+//				"should be coherent with the data gathered while training.").colspan(2).row();
+		
+		root.add(recogTable);
 		
 		return root;
 	}
@@ -97,18 +104,74 @@ public class MicAnalysisDemo implements Demo
 		return text;
 	}
 	
-	private Actor pdLabel(final String label, Skin skin, final Label dlabel)
+	private Actor pdBongHeader(Skin skin)
 	{
-		PdListener listener;	
-		listener = new PdAdapter(){
-		@Override
-		public void receiveFloat(String source, float x) {
-				dlabel.setText(label+" : " + String.valueOf(Math.round(x)));
+		return new Label("- please follow instructions below -", skin);
+	}
+	
+	private Actor pdBonk(Skin skin)
+	{
+		final String infoInit = "Press start to begin a new learning process.";
+		
+		final Label label = new Label(infoInit, skin);
+		label.setAlignment(Align.center);
+		
+		PdListener statusListener = new PdAdapter(){
+			@Override
+			public void receiveFloat(String source, float x) {
+				if(x > 0){
+					label.setText("Make a sound like clap your hand or your finger.");
+				}else{
+					label.setText("Training is now over, make some sounds to test recognition.");
+				}
 			}
 		};
-		Pd.audio.addListener(label, listener);
-		return dlabel;
+		
+		PdListener bonkListener = new PdAdapter(){
+			@Override
+			public void receiveList(String source, Object... args) {
+				float state = (Float)args[0];
+				float occurence = (Float)args[1];
+				float id = (Float)args[2];
+				
+				if(state > 0)
+				{
+					if(occurence >= 2){
+						label.setText("Learning for sound [" + String.valueOf((int)id) + "] complete.\nTry a different sound from earlier\nor press stop when you have enough sounds.");
+					}else{
+						label.setText("Learning for sound [" + String.valueOf((int)id) + "] in progress [" + String.valueOf((int)occurence + 1) + " / 3].\nMake the same sound again...");
+					}
+				}
+				else if(state > -1)
+				{
+					label.setText("Sound id [" + String.valueOf((int)id) + "] recognized!\nMake a sound again to test recognition\nor press start to begin a new learning process.");
+				}
+			}
+		};
+		
+		Pd.audio.addListener("status", statusListener);
+		Pd.audio.addListener("bonk", bonkListener);
+		return label;
 	}
 
+	private Actor pdMetric(final Table table, final String title, final String symbol, float min, float max, Skin skin)
+	{
+		final Label dynLabel = new Label("", skin);
+		final ProgressBar pb = new ProgressBar(min, max, (max - min) / 1000, false, skin);
+		PdListener listener = new PdAdapter(){
+			@Override
+			public void receiveFloat(String source, float x) {
+				if(x > 0){
+					dynLabel.setText(String.valueOf(MathUtils.round(x)));
+					pb.setValue(x);
+				}
+			}
+		};
+		Pd.audio.addListener(symbol, listener);
+		table.add(title);
+		table.add(pb);
+		table.add(dynLabel);
+		return table;
+	}
 
 }

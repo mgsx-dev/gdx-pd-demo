@@ -21,14 +21,14 @@ public class AtmosphereDemo implements Demo
 	{
 		Table root = new Table(skin);
 		
-		String info = "Demonstrate procedural audio to generate atmosphere.\n" +
-				"Sound design is intentionally simple to help understanding.";
+		String info = "Let elements speak\n- procedural audio generators -";
 		
-		Label infoLabel = new Label(info, skin);
+		Label infoLabel = new Label(info, skin, "title");
 		infoLabel.setAlignment(Align.center);
 		
 		root.add(infoLabel).padBottom(30).colspan(4).row();
 
+		root.defaults().pad(10);
 		
 		addControl(root, "Rain", "rain");
 		addControl(root, "Wind", "wind");

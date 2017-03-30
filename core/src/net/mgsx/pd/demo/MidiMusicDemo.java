@@ -11,6 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Slider;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Array;
 
 import net.mgsx.midi.sequence.MidiSequence;
@@ -93,6 +94,13 @@ public class MidiMusicDemo implements Demo
 			}
 		});
 		
+		String info = "More control on music\n- full procedural synthetizers and MIDI files -";
+		Label infoLabel = new Label(info, skin, "title");
+		infoLabel.setAlignment(Align.center);
+		
+		root.add(infoLabel).colspan(2).padBottom(50);
+		root.row();
+		
 		root.add("Song");
 		root.add(songSelector);
 		root.row();
@@ -119,7 +127,7 @@ public class MidiMusicDemo implements Demo
 		root.row();
 		
 		root.add("Copyright Notice");
-		root.add(copyrightPlaceholder = new Label("", skin));
+		root.add(copyrightPlaceholder = new Label("", skin)).padTop(50);
 		root.row();
 		
 		patch = Pd.audio.open(Gdx.files.internal("pdmidi/midiplayer.pd"));

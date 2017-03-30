@@ -21,12 +21,13 @@ public class SoundEffectsDemo implements Demo
 	{
 		Table root = new Table(skin);
 		
-		String info = "Demonstrate both procedural and sample based sounds.\n" +
-				"Sound design is intentionally simple to help understanding.";
+		String info = "Dynamic sounds\n" +
+				"- procedural and sample based sounds -";
 		
-		Label infoLabel = new Label(info, skin);
+		Label infoLabel = new Label(info, skin, "title");
 		infoLabel.setAlignment(Align.center);
 		
+		root.defaults().pad(10);
 		root.add(infoLabel).padBottom(30).colspan(4).row();
 		
 		addControl(root, "Explosion (procedural)", "explosion");

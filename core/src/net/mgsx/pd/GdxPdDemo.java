@@ -11,6 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.SelectBox;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.badlogic.gdx.utils.Scaling;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 
 import net.mgsx.pd.demo.AtmosphereDemo;
@@ -49,8 +50,12 @@ public class GdxPdDemo extends ApplicationAdapter
 		Image gdxIcon = new Image(new Texture(Gdx.files.internal("libgdx-logo.png")));
 		Image pdIcon = new Image(new Texture(Gdx.files.internal("pd-icon.png")));
 		
-		header.add(gdxIcon);
-		header.add(pdIcon);
+		gdxIcon.setScaling(Scaling.none);
+		pdIcon.setScaling(Scaling.none);
+		
+		float pad = 20;
+		header.add(gdxIcon).padRight(pad);
+		header.add(pdIcon).padRight(pad);
 		
 		final SelectBox<Demo> demoSelector = new SelectBox<Demo>(skin);
 		
@@ -100,7 +105,8 @@ public class GdxPdDemo extends ApplicationAdapter
 
 	@Override
 	public void render () {
-		Gdx.gl.glClearColor(.5f, .5f, .5f, 1);
+		float b = .3f;
+		Gdx.gl.glClearColor(b,b,b, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		stage.act();
 		stage.draw();

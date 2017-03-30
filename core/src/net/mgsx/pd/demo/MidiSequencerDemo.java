@@ -13,6 +13,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Slider;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Array;
 
 import net.mgsx.midi.playback.LiveSequencer;
@@ -155,9 +156,17 @@ public class MidiSequencerDemo implements Demo
 		matrix = new Table(skin);
 		buildMatrix(matrix, lenBox.getSelected());
 		
+		String info = "Turn AI to a true DJ\n- multi-track live matrix sequencer -";
+		Label infoLabel = new Label(info, skin, "title");
+		infoLabel.setAlignment(Align.center);
+		
+		table.add(infoLabel).padBottom(10);
+		table.row();
+		
 		table.add(header).expandX().center();
 		table.row();
-		table.add(new ScrollPane(matrix, skin)).expand().center().top();
+		ScrollPane sp = new ScrollPane(matrix, skin);
+		table.add(sp).expand().center().top();
 		
 		changeSong(songBox.getSelected());
 	}

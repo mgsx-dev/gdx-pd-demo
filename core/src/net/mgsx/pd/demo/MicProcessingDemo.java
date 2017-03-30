@@ -2,12 +2,14 @@ package net.mgsx.pd.demo;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Slider;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.VerticalGroup;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.badlogic.gdx.utils.Align;
 
 import net.mgsx.pd.GdxPdDemo;
 import net.mgsx.pd.Pd;
@@ -28,7 +30,12 @@ public class MicProcessingDemo implements Demo
 		
 		Table root = new Table(skin);
 		
-		root.add("Microphone Demo").row();
+		String info = "You want to play Vador?\n" +
+				"- realtime audio processing -";
+		
+		Label infoLabel = new Label(info, skin, "title");
+		infoLabel.setAlignment(Align.center);
+		root.add(infoLabel).padBottom(30).colspan(2).row();
 		
 		VerticalGroup list = new VerticalGroup();
 		list.addActor(pdButton("Realtime", skin, "mode", 0));

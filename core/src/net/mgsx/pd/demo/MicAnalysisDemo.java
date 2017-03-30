@@ -10,6 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.VerticalGroup;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.badlogic.gdx.utils.Align;
 
 import net.mgsx.pd.GdxPdDemo;
 import net.mgsx.pd.Pd;
@@ -30,6 +31,13 @@ public class MicAnalysisDemo implements Demo
 		patch  = Pd.audio.open(Gdx.files.internal("pd/breath.pd"));
 		
 		Table root = new Table(skin);
+		
+		String info = "Listen to players\n" +
+				"- realtime audio analysis -";
+		
+		Label infoLabel = new Label(info, skin, "title");
+		infoLabel.setAlignment(Align.center);
+		root.add(infoLabel).padBottom(30).row();
 		
 		root.add("Microphone Tracking Demo :").row();
 		VerticalGroup list = new VerticalGroup();

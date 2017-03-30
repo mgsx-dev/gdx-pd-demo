@@ -5,7 +5,8 @@ com.badlogic.gdx.graphics.Color: {
 	white: { a: 1, b: 1, g: 1, r: 1 },
 	red: { a: 1, b: 0, g: 0, r: 1 },
 	black: { a: 1, b: 0, g: 0, r: 0 },
-	blue: { a: 1, b: 1, g: 0.5, r: 0.5}
+	blue: { a: 1, b: 1, g: 0.2, r: 0.2},
+	light: { a: 0.5, b: 1, g: 1, r: 1 }
 },
 com.badlogic.gdx.scenes.scene2d.ui.Skin$TintedDrawable: {
 	dialogDim: { name: white, color: { r: 0, g: 0, b: 0, a: 0.45 } },
@@ -50,6 +51,7 @@ com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle: {
 	default: { font: default-font, fontColor: white }
 	link: { font: default-font, fontColor: blue }
 	tab-left: { font: default-font, fontColor: white, background: default-window-header-left}
+	title: { font: default-font, fontColor: light }
 },
 com.badlogic.gdx.scenes.scene2d.ui.TextField$TextFieldStyle: {
 	default: { selection: selection, background: textfield, font: default-font, fontColor: white, cursor: cursor }

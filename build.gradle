@@ -87,7 +87,7 @@ project(":android") {
         natives "net.mgsx.gdx:gdx-pd-platform:$pdVersion:natives-x86"
         natives "net.mgsx.gdx:gdx-pd-platform:$pdVersion:natives-x86_64"
         
-        pd 'com.github.mgsx-dev:gdx-pd-patchbank:$patchBankVersion'
+        pd "com.github.mgsx-dev:gdx-pd-patchbank:$patchBankVersion"
          
         pd('rjdj:rjlib:e74c696@zip')
     }

@@ -300,7 +300,7 @@ public class MidiSequencerDemo implements Demo
 				int notesIn = 0;
 				int otherIn = 0;
 				for(MidiEvent e : seq.getTracks().get(chan).getEvents()){
-					long p = e.getTick() / seq.getTracks().get(chan).resolution;
+					long p = e.getTick() / seq.getTracks().get(chan).getResolution();
 					boolean in = p >= clip * len && p < (clip+1) * len;
 					if(in){
 						hasIn++;
@@ -330,9 +330,9 @@ public class MidiSequencerDemo implements Demo
 						int len = division.value;
 						boolean in = p >= clip * len && p < (clip+1) * len;
 						
-						if(seq.getTracks().get(chan).nextLoop){
-							if(seq.getTracks().get(chan).nextLoopStart == clip * len &&
-									seq.getTracks().get(chan).nextLoopEnd == (clip+1)*len	){
+						if(seq.getTracks().get(chan).isNextLoop()){
+							if(seq.getTracks().get(chan).getNextLoopStart() == clip * len &&
+									seq.getTracks().get(chan).getNextLoopEnd() == (clip+1)*len	){
 								setColor(Color.CYAN);
 							}else{
 								setColor(in ? Color.GOLD : Color.WHITE);

@@ -73,6 +73,8 @@ public class MidiSequencerDemo implements Demo
 		
 		patch = Pd.audio.open(Gdx.files.internal("pdmidi/midiplayer.pd"));
 		
+		Pd.audio.sendFloat("reverb", .2f);
+		
 		seq = new LiveSequencer(Pd.midi.getPdSynth());
 		
 		buildGUI(table);

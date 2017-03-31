@@ -1,4 +1,4 @@
-#N canvas 267 131 1311 739 10;
+#N canvas 261 139 1311 739 10;
 #X obj 45 38 inlet;
 #X obj 130 634 outlet~;
 #X obj 74 367 bass-drum;
@@ -289,9 +289,6 @@
 #X connect 12 0 2 0;
 #X restore 1038 627 pd guiro;
 #X obj 1038 578 route 73 74;
-#X obj 1131 698 bng 15 50 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X floatatom 1106 675 5 0 0 0 - - -, f 5;
 #X obj 1052 604 bng 15 50 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X connect 0 0 7 0;
@@ -362,8 +359,6 @@
 #X connect 34 0 1 0;
 #X connect 35 0 1 0;
 #X connect 36 0 35 0;
-#X connect 36 0 39 0;
+#X connect 36 0 37 0;
 #X connect 36 1 35 1;
-#X connect 36 1 39 0;
-#X connect 36 2 38 0;
-#X connect 36 2 37 0;
+#X connect 36 1 37 0;

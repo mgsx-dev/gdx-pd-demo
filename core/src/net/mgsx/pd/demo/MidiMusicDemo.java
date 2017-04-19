@@ -103,6 +103,9 @@ public class MidiMusicDemo implements Demo
 		btPlayStop.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
+				if(music.getPosition() >= music.getDuration()){
+					music.stop();
+				}
 				if(music.isPlaying()){
 					btPlayStop.setText("Play");
 					music.stop();

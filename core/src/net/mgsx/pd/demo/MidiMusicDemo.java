@@ -100,7 +100,9 @@ public class MidiMusicDemo implements Demo
 		Label infoLabel = new Label(info, skin, "title");
 		infoLabel.setAlignment(Align.center);
 		
-		root.add(infoLabel).colspan(2).padBottom(50);
+		root.defaults().padTop(15);
+		
+		root.add(infoLabel).colspan(2).padBottom(10);
 		root.row();
 		
 		root.add("Song");
@@ -124,7 +126,7 @@ public class MidiMusicDemo implements Demo
 		root.row();
 		
 		root.add("Copyright Notice");
-		root.add(copyrightPlaceholder = new Label("", skin)).padTop(50);
+		root.add(copyrightPlaceholder = new Label("", skin)).padTop(20);
 		root.row();
 		
 		patch = Pd.audio.open(Gdx.files.internal("pdmidi/midiplayer.pd"));

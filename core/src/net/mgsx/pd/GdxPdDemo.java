@@ -20,8 +20,6 @@ import net.mgsx.pd.demo.IntroDemo;
 import net.mgsx.pd.demo.MicAnalysisDemo;
 import net.mgsx.pd.demo.MicProcessingDemo;
 import net.mgsx.pd.demo.MidiMusicDemo;
-import net.mgsx.pd.demo.MidiSequencerDemo;
-import net.mgsx.pd.demo.SettingsDemo;
 import net.mgsx.pd.demo.SoundEffectsDemo;
 
 public class GdxPdDemo extends ApplicationAdapter 
@@ -63,12 +61,10 @@ public class GdxPdDemo extends ApplicationAdapter
 		demoSelector.setItems(new Demo[]{
 			new IntroDemo(),
 			new MidiMusicDemo(),
-			new MidiSequencerDemo(),
 			new AtmosphereDemo(),
 			new SoundEffectsDemo(),
 			new MicAnalysisDemo(),
-			new MicProcessingDemo(),
-			new SettingsDemo()
+			new MicProcessingDemo()
 		});
 		
 		demoPlaceholder = new Table(skin);

@@ -149,7 +149,7 @@ public class MidiMusicDemo implements Demo
 		
 		patch = Pd.audio.open(Gdx.files.internal("pdmidi/midiplayer.pd"));
 
-		reverbController.setValue(0.2f);
+		reverbController.setValue(0.1f);
 		
 		changeSong(songSelector.getSelected());
 		

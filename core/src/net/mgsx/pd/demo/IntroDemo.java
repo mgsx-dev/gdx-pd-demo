@@ -17,7 +17,7 @@ public class IntroDemo implements Demo {
 	{
 		Table list = new Table(skin);
 		
-		float pad = 50;
+		float pad = 30;
 		
 		String info = "GDX-PD\n" +
 				"- Pure Data extension for LibGDX -";

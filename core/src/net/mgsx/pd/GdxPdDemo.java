@@ -38,7 +38,7 @@ public class GdxPdDemo extends ApplicationAdapter
 		Pd.audio.create(config);
 
 		// new ScreenViewport()
-		stage = new Stage(new FitViewport(800, 600));
+		stage = new Stage(new FitViewport(640, 480));
 		
 		skin = new Skin(Gdx.files.internal("skins/uiskin.json"));
 		

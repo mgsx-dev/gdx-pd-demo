@@ -35,7 +35,7 @@ public class MicProcessingDemo implements Demo
 		group.setMaxCheckCount(1);
 		group.setMinCheckCount(0);
 		
-		float pad = 40;
+		float pad = 30;
 		
 		Table root = new Table(skin);
 		
@@ -44,7 +44,7 @@ public class MicProcessingDemo implements Demo
 		
 		Label infoLabel = new Label(info, skin, "title");
 		infoLabel.setAlignment(Align.center);
-		root.add(infoLabel).padBottom(30).row();
+		root.add(infoLabel).row();
 		
 		
 		final Slider pitchSlider = new Slider(0.5f, 2f, .01f, false, skin);

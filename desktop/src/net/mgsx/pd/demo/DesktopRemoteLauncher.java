@@ -11,8 +11,8 @@ public class DesktopRemoteLauncher {
 		LwjglApplicationConfiguration.disableAudio = true;
 		PdConfiguration.remoteEnabled = true;
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-		config.width = 800;
-		config.height = 600;
+		config.width = 640;
+		config.height = 480;
 		new LwjglApplication(new GdxPdDemo(), config);
 	}
 }

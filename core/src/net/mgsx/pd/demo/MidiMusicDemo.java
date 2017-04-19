@@ -36,7 +36,25 @@ public class MidiMusicDemo implements Demo
 		Table root = new Table(skin);
 		
 		final SelectBox<FileHandle> songSelector = new SelectBox<FileHandle>(skin);
-		songSelector.setItems(Gdx.files.internal("music").list(".mid"));
+		
+		String [] paths = {
+			"music/F-Zero_Silence.mid",
+			"music/F-Zero_MuteCity.mid",
+			"music/ChronoTrigger_Battle.mid",
+			"music/ChronoTrigger_Boss.mid",
+			"music/Castlevania_Beginning.mid",
+			"music/Castlevania_VampireKiller.mid",
+			"music/Megaman_ArmoredArmadillo.mid",
+			"music/Megaman_SparkMandrill.mid",
+			"music/Zelda_Dungeon.mid",
+			"music/Zelda_RainScene.mid"
+		};
+		
+		Array<FileHandle> files = new Array<FileHandle>();
+		for(String path : paths){
+			files.add(Gdx.files.internal(path));
+		}
+		songSelector.setItems(files);
 		
 		songSelector.addListener(new ChangeListener() {
 			@Override

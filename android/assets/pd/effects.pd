@@ -1,4 +1,4 @@
-#N canvas 441 274 1160 484 10;
+#N canvas 438 278 1160 484 10;
 #X obj 405 409 dac~;
 #X obj 755 278 abs/sampler~ ../samples/sell_buy_item.wav 100000;
 #X obj 730 123 s sample;
@@ -92,7 +92,7 @@
 #X obj 757 354 dac~;
 #X obj 756 311 *~ 0.98;
 #X obj 439 75 hradio 15 1 0 3 empty empty empty 0 -8 0 10 -262144 -1
--1 1;
+-1 0;
 #N canvas 65 89 450 300 bip 0;
 #X obj 143 204 *~;
 #X obj 218 133 vline~;
@@ -124,7 +124,7 @@
 #X obj 490 231 select 2;
 #X msg 494 267 1;
 #X msg 532 266 0;
-#N canvas 652 350 541 467 bips 0;
+#N canvas 1002 408 541 467 bips 1;
 #X obj 50 343 *~;
 #X obj 50 394 *~;
 #X obj 156 99 select 1 0;
@@ -137,6 +137,9 @@
 #X msg 156 136 1 5;
 #X obj 156 330 line~;
 #X msg 125 193 0;
+#X msg 339 140 0;
+#X msg 338 69 bang;
+#X obj 339 99 del 2000;
 #X connect 0 0 1 0;
 #X connect 1 0 6 0;
 #X connect 2 0 9 0;
@@ -148,8 +151,12 @@
 #X connect 8 0 3 0;
 #X connect 9 0 10 0;
 #X connect 9 0 11 0;
+#X connect 9 0 13 0;
 #X connect 10 0 1 1;
 #X connect 11 0 8 1;
+#X connect 12 0 2 0;
+#X connect 13 0 14 0;
+#X connect 14 0 12 0;
 #X restore 500 298 pd bips;
 #X msg 396 260 990;
 #X obj 124 323 *~ 0.3;

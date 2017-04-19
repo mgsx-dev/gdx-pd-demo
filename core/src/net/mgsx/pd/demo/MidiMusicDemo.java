@@ -4,7 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.ui.ProgressBar;
 import com.badlogic.gdx.scenes.scene2d.ui.SelectBox;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Slider;
@@ -29,6 +28,7 @@ public class MidiMusicDemo implements Demo
 	
 	private Label copyrightPlaceholder;
 	private Slider tempoController;
+	private boolean updatingPosition;
 	 
 	@Override
 	public Actor create(Skin skin) 
@@ -55,19 +55,21 @@ public class MidiMusicDemo implements Demo
 			}
 		});
 		
-		ProgressBar songProgress = new ProgressBar(0, 1, .01f, false, skin){
+		final Slider positionController = new Slider(0, 1, .01f, false, skin){
 			@Override
 			public void act(float delta) {
 				super.act(delta);
+				updatingPosition = true;
 				setValue(music.getPosition() / music.getDuration());
+				updatingPosition = false;
 			}
 		};
-		
-		final Slider positionController = new Slider(0, 1, .01f, false, skin);
 		positionController.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
-				music.setPosition(positionController.getValue() * music.getDuration());
+				if(!updatingPosition){
+					music.setPosition(positionController.getValue() * music.getDuration());
+				}
 			}
 		});
 		
@@ -112,11 +114,6 @@ public class MidiMusicDemo implements Demo
 		root.add("Position");
 		root.add(positionController);
 		root.row();
-		
-		root.add("Progress");
-		root.add(songProgress);
-		root.row();
-		
 		
 		root.add("Reverb");
 		root.add(reverbController);

@@ -6,11 +6,17 @@
 * Desktop (Linux, Windows, Mac) versions are available in [Releases section](releases). Instructions are provided in release notes.
 * Android version available on Google Play Store : *(coming soon)*
 
-# Help
+# Content
 
-Demo is self explained but some need more information.
+* MIDI music player.
+* Procedural audio generators.
+* Procedural and sample based sounds.
+* Real time audio input analysis.
+* Real time audio input processing.
 
-*Some hints will be available soon*
+Available in a next release
+* Multitrack live MIDI sequencer.
+* Sound recognition.
 
 # Credits
 

@@ -16,7 +16,7 @@ allprojects {
     apply plugin: "eclipse"
     apply plugin: "idea"
 
-    version = '0.2.0-SNAPSHOT'
+    version = '0.2.0'
     ext {
         appName = "gdx-pd-demo"
         gdxVersion = '1.9.6'
@@ -24,7 +24,7 @@ allprojects {
         box2DLightsVersion = '1.4'
         ashleyVersion = '1.7.0'
         aiVersion = '1.8.0'
-        pdVersion = '0.7.0-SNAPSHOT'
+        pdVersion = '0.7.0'
         patchBankVersion = '0.1.0'
     }
 

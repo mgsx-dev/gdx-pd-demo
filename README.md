@@ -3,7 +3,7 @@
 
 # Install
 
-* Desktop (Linux, Windows, Mac) versions are available in [Releases section](releases). Instructions are provided in release notes.
+* Desktop (Linux, Windows, Mac) versions are available in [Releases section](https://github.com/mgsx-dev/gdx-pd-demo/releases). Instructions are provided in release notes.
 * Android version available on Google Play Store : *(coming soon)*
 
 # Content

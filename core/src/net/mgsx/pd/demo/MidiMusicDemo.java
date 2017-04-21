@@ -1,8 +1,11 @@
 package net.mgsx.pd.demo;
 
+import java.util.Comparator;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.SelectBox;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -10,13 +13,12 @@ import com.badlogic.gdx.scenes.scene2d.ui.Slider;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.Array;
 
 import net.mgsx.midi.sequence.MidiSequence;
-import net.mgsx.midi.sequence.event.meta.CopyrightNotice;
 import net.mgsx.midi.sequence.event.meta.Tempo;
-import net.mgsx.midi.sequence.event.meta.Text;
 import net.mgsx.pd.Pd;
 import net.mgsx.pd.midi.MidiMusic;
 import net.mgsx.pd.patch.PdPatch;
@@ -26,7 +28,6 @@ public class MidiMusicDemo extends DemoBase
 	private PdPatch patch;
 	private MidiMusic music;
 	
-	private Label copyrightPlaceholder;
 	private Slider tempoController;
 	private boolean updatingPosition;
 	 
@@ -36,24 +37,13 @@ public class MidiMusicDemo extends DemoBase
 		Table root = new Table(skin);
 		
 		final SelectBox<FileHandle> songSelector = new SelectBox<FileHandle>(skin);
-		
-		String [] paths = {
-			"music/F-Zero_Silence.mid",
-			"music/F-Zero_MuteCity.mid",
-			"music/ChronoTrigger_Battle.mid",
-			"music/ChronoTrigger_Boss.mid",
-			"music/Castlevania_Beginning.mid",
-			"music/Castlevania_VampireKiller.mid",
-			"music/Megaman_ArmoredArmadillo.mid",
-			"music/Megaman_SparkMandrill.mid",
-			"music/Zelda_Dungeon.mid",
-			"music/Zelda_RainScene.mid"
-		};
-		
-		Array<FileHandle> files = new Array<FileHandle>();
-		for(String path : paths){
-			files.add(Gdx.files.internal(path));
-		}
+		Array<FileHandle> files = new Array<FileHandle>(Gdx.files.internal("music").list(".mid"));
+		files.sort(new Comparator<FileHandle>() {
+			@Override
+			public int compare(FileHandle o1, FileHandle o2) {
+				return o1.name().compareTo(o2.name());
+			}
+		});
 		songSelector.setItems(files);
 		
 		songSelector.addListener(new ChangeListener() {
@@ -145,9 +135,16 @@ public class MidiMusicDemo extends DemoBase
 		root.add("Playback");
 		root.add(btPlayStop);
 		root.row();
+
+		Table licence = new Table(skin);
+		float licencePad = 10;
+		licence.add("Song from").padRight(licencePad);
+		licence.add(link("50 MIDI Tunes", "https://opengameart.org/content/50-midi-tunes", skin));
+		licence.add("by A.J. Gillespie is licensed under").padRight(licencePad).padLeft(licencePad);
+		licence.add(link("CC BY 3.0", "https://creativecommons.org/licenses/by/3.0/", skin)).row();
 		
-		root.add("Copyright Notice");
-		root.add(copyrightPlaceholder = new Label("", skin)).padTop(20);
+		
+		root.add(licence).colspan(2).padTop(60);
 		root.row();
 		
 		patch = Pd.audio.open(Gdx.files.internal("pdmidi/midiplayer.pd"));
@@ -159,22 +156,25 @@ public class MidiMusicDemo extends DemoBase
 		return root;
 	}
 	
+	private static Actor link(String label, final String url, Skin skin) 
+	{
+		Label actor = new Label(label, skin, "link");
+		actor.addListener(new ClickListener() {
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+				Gdx.net.openURI(url);
+			}
+		});
+		return actor;
+	}
+
+	
 	protected void changeSong(FileHandle file) 
 	{
 		if(music != null){
 			music.dispose();
 		}
 		MidiSequence sequence = new MidiSequence(file);
-		
-		// display song meta (copyright notice and text)
-		String copyrightText = "";
-		for(CopyrightNotice event : sequence.findEvents(new Array<CopyrightNotice>(), CopyrightNotice.class)){
-			copyrightText += event.getNotice() + "\n";
-		}
-		for(Text event : sequence.findEvents(new Array<Text>(), Text.class)){
-			copyrightText += event.getText() + "\n";
-		}
-		copyrightPlaceholder.setText(copyrightText.trim());
 		
 		// get first tempo change
 		for(Tempo event : sequence.findEvents(new Array<Tempo>(), Tempo.class)){

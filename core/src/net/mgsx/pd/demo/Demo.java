@@ -8,4 +8,7 @@ public interface Demo extends Disposable
 {
 	public Actor create(Skin skin);
 	
+	public void pause();
+	public void resume();
+	
 }

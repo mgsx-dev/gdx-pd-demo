@@ -21,7 +21,7 @@ import net.mgsx.pd.Pd;
 import net.mgsx.pd.midi.MidiMusic;
 import net.mgsx.pd.patch.PdPatch;
 
-public class MidiMusicDemo implements Demo
+public class MidiMusicDemo extends DemoBase
 {
 	private PdPatch patch;
 	private MidiMusic music;
@@ -196,6 +196,20 @@ public class MidiMusicDemo implements Demo
 	@Override
 	public String toString() {
 		return "Music";
+	}
+	
+	@Override
+	public void pause() {
+		if(music != null){
+			music.pause();
+		}
+	}
+	
+	@Override
+	public void resume() {
+		if(music != null){
+			music.play();
+		}
 	}
 
 }

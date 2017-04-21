@@ -10,7 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
 
-public class IntroDemo implements Demo {
+public class IntroDemo extends DemoBase {
 
 	@Override
 	public Actor create(Skin skin) 

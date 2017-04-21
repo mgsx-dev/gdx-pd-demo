@@ -16,7 +16,7 @@ import net.mgsx.pd.GdxPdDemo;
 import net.mgsx.pd.Pd;
 import net.mgsx.pd.patch.PdPatch;
 
-public class MicProcessingDemo implements Demo
+public class MicProcessingDemo extends DemoBase
 {
 	private PdPatch patch;
 	

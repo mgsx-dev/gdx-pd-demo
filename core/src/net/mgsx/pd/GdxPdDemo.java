@@ -1,5 +1,6 @@
 package net.mgsx.pd;
 
+import com.badlogic.gdx.Application.ApplicationType;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
@@ -123,5 +124,27 @@ public class GdxPdDemo extends ApplicationAdapter
 		}
 		stage.dispose();
 		Pd.audio.release();
+	}
+	
+	@Override
+	public void pause() {
+		if(Gdx.app.getType() == ApplicationType.Android){
+			if(demo != null){
+				demo.pause();
+			}
+			Pd.audio.pause();
+		}
+		super.pause();
+	}
+	
+	@Override
+	public void resume() {
+		super.resume();
+		if(Gdx.app.getType() == ApplicationType.Android){
+			Pd.audio.resume();
+			if(demo != null){
+				demo.resume();
+			}
+		}
 	}
 }

@@ -12,7 +12,7 @@ import com.badlogic.gdx.utils.Align;
 import net.mgsx.pd.Pd;
 import net.mgsx.pd.patch.PdPatch;
 
-public class SoundEffectsDemo implements Demo
+public class SoundEffectsDemo extends DemoBase
 {
 	private PdPatch patch;
 	

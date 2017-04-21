@@ -12,7 +12,7 @@ import com.badlogic.gdx.utils.Align;
 import net.mgsx.pd.Pd;
 import net.mgsx.pd.patch.PdPatch;
 
-public class AtmosphereDemo implements Demo
+public class AtmosphereDemo extends DemoBase
 {
 	private PdPatch patch;
 	

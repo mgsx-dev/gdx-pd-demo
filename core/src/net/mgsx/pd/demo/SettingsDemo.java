@@ -12,7 +12,7 @@ import com.badlogic.gdx.utils.Align;
 import net.mgsx.pd.GdxPdDemo;
 import net.mgsx.pd.Pd;
 
-public class SettingsDemo implements Demo
+public class SettingsDemo extends DemoBase
 {
 	@Override
 	public Actor create(Skin skin) 

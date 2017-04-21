@@ -16,7 +16,7 @@ import net.mgsx.pd.Pd;
 import net.mgsx.pd.patch.PdPatch;
 import net.mgsx.pd.utils.PdAdapter;
 
-public class MicAnalysisDemo implements Demo
+public class MicAnalysisDemo extends DemoBase
 {
 	private PdPatch patch;
 	

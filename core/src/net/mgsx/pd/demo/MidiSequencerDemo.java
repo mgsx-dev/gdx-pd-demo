@@ -25,7 +25,7 @@ import net.mgsx.midi.sequence.event.meta.TrackName;
 import net.mgsx.pd.Pd;
 import net.mgsx.pd.patch.PdPatch;
 
-public class MidiSequencerDemo implements Demo
+public class MidiSequencerDemo extends DemoBase
 {
 	public static class Division{
 		

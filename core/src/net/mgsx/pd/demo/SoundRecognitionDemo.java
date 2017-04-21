@@ -18,7 +18,7 @@ import net.mgsx.pd.Pd;
 import net.mgsx.pd.patch.PdPatch;
 import net.mgsx.pd.utils.PdAdapter;
 
-public class SoundRecognitionDemo implements Demo
+public class SoundRecognitionDemo extends DemoBase
 {
 	private PdPatch patch;
 	

@@ -20,7 +20,6 @@ Available in a next release
 
 # Credits
 
-Demo application is shipped with some midi files kindly authorized by the author : Jason "Jay" Reichard who published a lot of
-nice old school game music covers, please take a look at his website : http://zorasoft.net/midi.html
+Demo application contains MIDI files from [50 MIDI Tunes](https://opengameart.org/content/50-midi-tunes) by A.J. Gillespie licensed under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)
 
 Realtime Pitch Shifter is inspired by great Katja's work. If you want to learn more about DSP math voodoo under the hood, please visit her website : http://www.katjaas.nl/pitchshift/pitchshift.html

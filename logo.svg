@@ -7,6 +7,7 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    version="1.1"
@@ -14,7 +15,10 @@
    height="50"
    id="svg2991"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="logo.svg">
+   sodipodi:docname="logo.svg"
+   inkscape:export-filename="/home/germain/git/gdx-pd-demo/android/assets/logo.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
   <sodipodi:namedview
      pagecolor="#ffffff"
      bordercolor="#666666"
@@ -44,7 +48,29 @@
        id="guide4237" />
   </sodipodi:namedview>
   <defs
-     id="defs2993" />
+     id="defs2993">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4152">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop4154" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="1"
+         id="stop4156" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4152"
+       id="linearGradient4158"
+       x1="15.759938"
+       y1="-11.298433"
+       x2="109.82244"
+       y2="-11.298433"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
   <metadata
      id="metadata2996">
     <rdf:RDF>
@@ -53,25 +79,10 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
-  <path
-     d="m 11.378202,8.8552229 c -5.0179207,0 -9.0957927,4.5014301 -9.0957927,10.0531821 0,0.06927 -6.49e-4,0.134973 0,0.202686 1.36e-4,0.01362 -3.24e-4,0.02659 0,0.04021 l 0,11.83682 c -0.0019,0.08263 0,0.160073 0,0.243223 0,5.551695 4.077872,10.053189 9.0957927,10.053189 l 6.421802,0 0.749547,0 8.326058,0 0.749546,0 6.421802,0 c 5.017995,0 9.095864,-4.501494 9.095864,-10.053189 0,-5.551761 -4.077869,-10.05319 -9.095864,-10.05319 l -3.646447,0 -1.458582,0 -7.211866,0 0,7.134522 7.211866,0 1.458582,0 1.073674,0 c 1.424031,0 2.572773,1.168245 2.572773,2.594371 0,1.426126 -1.148742,2.574071 -2.572773,2.574071 l -2.532256,0 -1.316773,0 -0.749546,0 -8.326058,0 -0.749547,0 -1.316773,0 -2.532262,0 c -1.396998,0 -2.530304,-1.104619 -2.572767,-2.492997 l 0,-11.83682 0,-0.04021 c 0.0633,-1.369115 1.189539,-2.452525 2.572767,-2.452525 l 2.532262,0 1.316773,0 3.930058,0 0,0.02011 20.095989,0 0,-7.8236447 -14.950442,0 -5.145547,0 -3.930058,0 -6.421802,0 z"
-     id="rect3030-3"
-     style="display:inline;fill:#e74a45;fill-opacity:1;stroke:none"
-     inkscape:connector-curvature="0" />
-  <path
-     d="m 47.682971,8.855158 0,7.81878 16.43675,0 5.65327,0 3.35977,0 1.3077,0 2.5148,0 c 1.3737,0 2.4922,1.082696 2.55504,2.450968 l 0,0.04021 0,11.829426 c -0.0422,1.387535 -1.16767,2.49144 -2.55504,2.49144 l -2.5148,0 -1.3077,0 -5.77398,0 -3.23906,0 -7.4237,0 0,-12.29531 -9.01305,0 0,12.29531 0,5.327347 0,2.471204 16.43675,0 3.23906,0 5.77398,0 6.37754,0 c 4.98341,0 9.03317,-4.49864 9.03317,-10.046898 0,-0.08309 0.002,-0.160462 0,-0.243093 l 0,-11.829426 c 3.1e-4,-0.01362 -1.4e-4,-0.02724 0,-0.04021 6.4e-4,-0.06765 0,-0.133286 0,-0.202556 0,-5.54825 -4.04976,-10.0468911 -9.03317,-10.0468911 l -6.37754,0 -3.35977,0 0,-0.020106 -22.09002,0 z"
-     id="rect3030-3-4-2"
-     style="display:inline;fill:#e74a45;fill-opacity:1;stroke:none"
-     inkscape:connector-curvature="0" />
-  <path
-     d="m 88.541791,8.8552229 12.609559,0 12.36381,12.3637941 12.3638,-12.3637941 12.60702,0 -16.21482,16.2148151 16.21482,16.214821 -12.60702,0 -12.3638,-12.363801 -12.36381,12.363801 -12.607029,0 16.212299,-16.214821 z"
-     id="path4169"
-     style="display:inline;fill:#e74a45;stroke:none"
-     inkscape:connector-curvature="0" />
   <text
      xml:space="preserve"
      style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:55.95653915px;line-height:125%;font-family:'Courier 10 Pitch';-inkscape-font-specification:'Courier 10 Pitch, Bold';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -96,4 +107,17 @@
        id="tspan4241"
        x="317.22189"
        y="33.690331">~</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:50.62631607px;line-height:125%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans, Bold';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#e74a45;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="-1.0949574"
+     y="48.062706"
+     id="text4148"
+     sodipodi:linespacing="125%"
+     transform="scale(1.155003,0.86579861)"><tspan
+       sodipodi:role="line"
+       id="tspan4150"
+       x="-1.0949574"
+       y="48.062706"
+       style="fill:#e74a45;fill-opacity:1">GDX</tspan></text>
 </svg>

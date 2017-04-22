@@ -36,8 +36,8 @@
      inkscape:guide-bbox="true"
      inkscape:showpageshadow="false"
      inkscape:zoom="2.7600735"
-     inkscape:cx="105.79588"
-     inkscape:cy="122.97123"
+     inkscape:cx="110.5059"
+     inkscape:cy="129.13049"
      inkscape:window-x="65"
      inkscape:window-y="24"
      inkscape:window-maximized="1"
@@ -80,7 +80,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -93,21 +93,6 @@
      y="1.2212453e-14"
      ry="29.17379"
      rx="29.329563" />
-  <path
-     d="m 27.319806,110.87248 c -5.01792,0 -9.095792,4.50143 -9.095792,10.05319 0,0.0693 -6.49e-4,0.13497 0,0.20268 1.36e-4,0.0136 -3.24e-4,0.0266 0,0.0402 l 0,11.83682 c -0.0019,0.0826 0,0.16007 0,0.24322 0,5.5517 4.077872,10.05319 9.095792,10.05319 l 6.421802,0 0.749547,0 8.326058,0 0.749546,0 6.421802,0 c 5.017995,0 9.095864,-4.50149 9.095864,-10.05319 0,-5.55176 -4.077869,-10.05319 -9.095864,-10.05319 l -3.646447,0 -1.458582,0 -7.211866,0 0,7.13453 7.211866,0 1.458582,0 1.073674,0 c 1.424031,0 2.572773,1.16824 2.572773,2.59437 0,1.42612 -1.148742,2.57407 -2.572773,2.57407 l -2.532256,0 -1.316773,0 -0.749546,0 -8.326058,0 -0.749547,0 -1.316773,0 -2.532262,0 c -1.396998,0 -2.530304,-1.10462 -2.572767,-2.493 l 0,-11.83682 0,-0.0402 c 0.0633,-1.36911 1.189539,-2.45252 2.572767,-2.45252 l 2.532262,0 1.316773,0 3.930058,0 0,0.0201 20.095989,0 0,-7.82365 -14.950442,0 -5.145547,0 -3.930058,0 -6.421802,0 z"
-     id="rect3030-3"
-     style="display:inline;fill:#e74a45;fill-opacity:1;stroke:none"
-     inkscape:connector-curvature="0" />
-  <path
-     d="m 63.624575,110.87242 0,7.81878 16.43675,0 5.65327,0 3.35977,0 1.3077,0 2.5148,0 c 1.3737,0 2.4922,1.08269 2.55504,2.45097 l 0,0.0402 0,11.82942 c -0.0422,1.38754 -1.16767,2.49144 -2.55504,2.49144 l -2.5148,0 -1.3077,0 -5.77398,0 -3.23906,0 -7.4237,0 0,-12.29531 -9.01305,0 0,12.29531 0,5.32735 0,2.4712 16.43675,0 3.23906,0 5.77398,0 6.37754,0 c 4.983405,0 9.033165,-4.49864 9.033165,-10.0469 0,-0.0831 0.002,-0.16046 0,-0.24309 l 0,-11.82942 c 3.1e-4,-0.0136 -1.4e-4,-0.0272 0,-0.0402 6.4e-4,-0.0676 0,-0.13329 0,-0.20256 0,-5.54825 -4.04976,-10.04689 -9.033165,-10.04689 l -6.37754,0 -3.35977,0 0,-0.0201 -22.09002,0 z"
-     id="rect3030-3-4-2"
-     style="display:inline;fill:#e74a45;fill-opacity:1;stroke:none"
-     inkscape:connector-curvature="0" />
-  <path
-     d="m 104.48339,110.87248 12.60956,0 12.36381,12.3638 12.3638,-12.3638 12.60702,0 -16.21482,16.21482 16.21482,16.21482 -12.60702,0 -12.3638,-12.3638 -12.36381,12.3638 -12.60703,0 16.2123,-16.21482 z"
-     id="path4169"
-     style="display:inline;fill:#e74a45;stroke:none"
-     inkscape:connector-curvature="0" />
   <text
      xml:space="preserve"
      style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:55.95653915px;line-height:125%;font-family:'Courier 10 Pitch';-inkscape-font-specification:'Courier 10 Pitch, Bold';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -132,4 +117,17 @@
        id="tspan4241"
        x="341.69308"
        y="100.14881">~</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:50.62631607px;line-height:125%;font-family:'DejaVu Sans';-inkscape-font-specification:'DejaVu Sans, Bold';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#e74a45;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     x="10.101061"
+     y="165.97169"
+     id="text4148"
+     sodipodi:linespacing="125%"
+     transform="scale(1.155003,0.86579861)"><tspan
+       sodipodi:role="line"
+       id="tspan4150"
+       x="10.101061"
+       y="165.97169"
+       style="fill:#e74a45;fill-opacity:1">GDX</tspan></text>
 </svg>

@@ -47,15 +47,11 @@ public class GdxPdDemo extends ApplicationAdapter
 		root.defaults().pad(10);
 		
 		Table header = new Table(skin);
-		Image gdxIcon = new Image(new Texture(Gdx.files.internal("libgdx-logo.png")));
-		Image pdIcon = new Image(new Texture(Gdx.files.internal("pd-icon.png")));
+		Image icon = new Image(new Texture(Gdx.files.internal("logo.png")));
 		
-		gdxIcon.setScaling(Scaling.none);
-		pdIcon.setScaling(Scaling.none);
+		icon.setScaling(Scaling.none);
 		
-		float pad = 20;
-		header.add(gdxIcon).padRight(pad);
-		header.add(pdIcon).padRight(pad);
+		header.add(icon).padRight(20);
 		
 		final SelectBox<Demo> demoSelector = new SelectBox<Demo>(skin);
 		
